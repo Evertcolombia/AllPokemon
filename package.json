@@ -1,0 +1,22 @@
+{
+  "name": "allpokemon",
+  "version": "0.1.0",
+  "description": "A Fronend single page with angularJS",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evertcolombia/AllPokemon.git"
+  },
+  "author": "EvertEscalante@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Evertcolombia/AllPokemon/issues"
+  },
+  "homepage": "https://github.com/Evertcolombia/AllPokemon#readme"
+}
