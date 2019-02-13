@@ -22,4 +22,12 @@
       evolution: [ "Bulbasaur", "Ivysaur", "Venusaur" ]
 		}
 	}])
+
+	app.controller('TabsController', ['$scope', function ($scope) {
+		$scope.tab = 1
+
+		$scope.selectTab = function (tab) {
+			$scope.tab = tab
+		}
+	}])
 })()
