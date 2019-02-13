@@ -31,6 +31,16 @@
 		}
 	}])
 
+	app.controller('CommentsController', ['$scope', function($scope) {
+		$scope.comments = []
+		$scope.comment = {}
+		$scope.show = false;
+
+		$scope.toggle = function () {
+			$scope.show = !$scope.show
+		}
+	}])
+
 	app.filter('imageify', function () {
 		return function (input) {
 			let url = 'img/pokemons/' + input.toLowerCase() + '.jpg'
