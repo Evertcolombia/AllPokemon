@@ -39,6 +39,12 @@
 		$scope.toggle = function () {
 			$scope.show = !$scope.show
 		}
+
+		$scope.anonymousChanged = function () {
+			if($scope.comment.anonymous) {
+				$scope.comment.email = '';
+			}
+		}
 	}])
 
 	app.filter('imageify', function () {

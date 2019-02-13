@@ -136,7 +136,7 @@
 										<div class="col-sm-4">
 											<input type="emai" placeholder="Please enter you email address" class="form-control" ng-model='comment.email' ng-disabled='comment.anonymous'>
 											<label>
-												<input type="checkbox" id="anonymous" ng-model='comment.anonymous'>
+												<input type="checkbox" id="anonymous" ng-model='comment.anonymous' ng-change='anonymousChanged()'>
 											</label>
 										</div>
 										<div class="col-sm-2">
