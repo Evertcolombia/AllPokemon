@@ -47,9 +47,11 @@
 		}
 
 		$scope.addComment = function () {
+			$scope.comment.date = Date.now();
 			$scope.comments.push($scope.comment)
+			$scope.comment = {};
 		}
-		
+
 	}])
 
 	app.filter('imageify', function () {
