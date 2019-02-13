@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<div class="navbar navbar-inverse navbar-fixed-top" role='navigation'>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle='collapse' data-target=
 					'.navbar-collapse'>
@@ -26,19 +26,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
+		<div class="container-fluid">
 			<!-- Pokemon-->
 			<div ng-controller='PokemonController'>
 				<div class="page-header">
 					<h1>{{pokemon.name}}
-						<small>{{pokemon.species}}</small>
-						<span class="label label-primary pull-right">#{{pokemon.id}}</span>
+					<small>{{pokemon.species}}</small>
+					<span class="label label-primary pull-right">#{{pokemon.id}}</span>
 					</h1>
 				</div>
 				<div class="row">
 					<div class="col-md-6">
 						<img class='avatar center-block' ng-src="{{pokemon.name | imageify}}" />
 					</div>
+					<!-- Tabs -->
 					<div class="col-md-6" ng-controller='TabsController'>
 						<ul class="nav nav-tabs nav-justified">
 							<li ng-class='{active : tab === 1}' ng-click='selectTab(1)'><a href="#">Pokedex</a></li>
@@ -52,76 +53,115 @@
 									<li class="list-group-item">
 										<strong>Type</strong>
 										<span class="pull-right">
-										<span class="label  type type-{{type | lowercase}} label-primary" ng-repeat='type in pokemon.type'>{{type}}</span></span>
-									</li>
-									<li class="list-group-item">
-										<strong>Height</strong>
-										<span class="pull-right">{{pokemon.height}}</span>
-									</li>
-									<li class="list-group-item">
-										<strong>Weight</strong>
-										<span class="pull-right">{{pokemon.weight}}</span>
-									</li>
-									<li class="list-group-item">
-										<strong>Abilities</strong>
-										<ul>
-											<li ng-repeat='abilitie in pokemon.abilities'>{{abilitie}}</li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-							<!-- Stats -->
-							<div ng-show='tab === 2'>
-								<ul class="list-group">
-									<li class="list-group-item">
-										<strong>HP</strong>
-										<span class="badge">{{pokemon.stats.hp}}</span>
-									</li>
-									<li class="list-group-item">
-										<strong>Attack</strong>
-										<span class="badge">{{pokemon.stats.attack}}</span>
-									</li>
-									<li class="list-group-item">
-										<strong>Defense</strong>
-										<span class="badge">{{pokemon.stats.defense}}</span>
-									</li>
-									<li class="list-group-item">
-										<strong>Special Attack</strong>
-										<span class="badge">{{pokemon.stats['sp.atk']}}</span>
-									</li>
-									<li class="list-group-item">
-										<strong>Special Defense</strong>
-										<span class="badge">{{pokemon.stats['sp.def']}}</span>
-									</li>
-									<li class="list-group-item">
-										<strong>Speed</strong>
-										<span class="badge">{{pokemon.stats.speed}}</span>
-									</li>
-									<li class="list-group-item">
-										<strong>Total</strong>
-										<span class="badge">{{pokemon.stats.total}}</span>
-									</li>
-								</ul>
-							</div>
-							<!-- Evolution-->
-							<div ng-show='tab === 3'>
-								<div class="text-center" ng-repeat='pokemon in pokemon.evolution'>
-									<a href="#">
-										<img src="{{pokemon | imageify}}" width="160" />
-										<p>
-											<strong>{{pokemon}}</strong>
-										</p>
-									</a>
-									<span ng-hide='$last' class="glyphicon glyphicon-arrow-down"></span>
+											<span class="label  type type-{{type | lowercase}} label-primary" ng-repeat='type in pokemon.type'>{{type}}</span></span>
+										</li>
+										<li class="list-group-item">
+											<strong>Height</strong>
+											<span class="pull-right">{{pokemon.height}}</span>
+										</li>
+										<li class="list-group-item">
+											<strong>Weight</strong>
+											<span class="pull-right">{{pokemon.weight}}</span>
+										</li>
+										<li class="list-group-item">
+											<strong>Abilities</strong>
+											<ul>
+												<li ng-repeat='abilitie in pokemon.abilities'>{{abilitie}}</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+								<!-- Stats -->
+								<div ng-show='tab === 2'>
+									<ul class="list-group">
+										<li class="list-group-item">
+											<strong>HP</strong>
+											<span class="badge">{{pokemon.stats.hp}}</span>
+										</li>
+										<li class="list-group-item">
+											<strong>Attack</strong>
+											<span class="badge">{{pokemon.stats.attack}}</span>
+										</li>
+										<li class="list-group-item">
+											<strong>Defense</strong>
+											<span class="badge">{{pokemon.stats.defense}}</span>
+										</li>
+										<li class="list-group-item">
+											<strong>Special Attack</strong>
+											<span class="badge">{{pokemon.stats['sp.atk']}}</span>
+										</li>
+										<li class="list-group-item">
+											<strong>Special Defense</strong>
+											<span class="badge">{{pokemon.stats['sp.def']}}</span>
+										</li>
+										<li class="list-group-item">
+											<strong>Speed</strong>
+											<span class="badge">{{pokemon.stats.speed}}</span>
+										</li>
+										<li class="list-group-item">
+											<strong>Total</strong>
+											<span class="badge">{{pokemon.stats.total}}</span>
+										</li>
+									</ul>
+								</div>
+								<!-- Evolution-->
+								<div ng-show='tab === 3'>
+									<div class="text-center" ng-repeat='pokemon in pokemon.evolution'>
+										<a href="#">
+											<img src="{{pokemon | imageify}}" width="160" />
+											<p>
+												<strong>{{pokemon}}</strong>
+											</p>
+										</a>
+										<span ng-hide='$last' class="glyphicon glyphicon-arrow-down"></span>
+									</div>
 								</div>
 							</div>
 						</div>
+						<!-- Tabs -->
 					</div>
+					<!-- Comments -->
+						<button class="btn btn-primary">Show Comments <span class="badge">2</span></button>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h1 class="panel-title">Comments <button class="close pull-right">&times;</button></h1>
+							</div>
+							<div class="panel-body">
+								<form class="form-horizontal" role='form'>
+									<div class="form-group">
+										<div class="col-sm-6">
+											<textarea class="form-control" placeholder="Please tell us what you think about {{pokemon.name}}"></textarea>
+										</div>
+										<div class="col-sm-4">
+											<input type="emai" placeholder="Please enter you email address" class="form-control">
+											<label>
+												<input type="checkbox" id="anonymous">
+											</label>
+										</div>
+										<div class="col-sm-2">
+											<button class="btn btn-lg">Comment</button>
+										</div>
+									</div>
+								</form>
+								<blockquote>
+									<p>OMG Bulbasaur is Amazing!!!</p>
+									<footer>
+										Comment by <a href="mailto:pepe@gmail.com">pepe@gmai.com</a> on <span> Sep 12, 2014, 11:00:00</span>
+									</footer>
+								</blockquote>
+								<blockquote>
+									<p>Nah I hate it -_-</p>
+									<footer>
+										Comment by <em>Anonymous</em> on <span> Sep 12, 2014, 11:00:00</span>
+									</footer>
+								</blockquote>
+							</div>
+						</div>
+						<!--comments-->
 				</div>
+				<!-- Pokemon/-->
 			</div>
-			<!-- Pokemon/-->
-		</div>
-	</body>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.1/angular.min.js"></script>
-	<script src="js/app.js"></script>
-</html>
+		</body>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.1/angular.min.js"></script>
+		<script src="js/app.js"></script>
+	</html>
