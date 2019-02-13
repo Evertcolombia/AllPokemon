@@ -45,6 +45,11 @@
 				$scope.comment.email = '';
 			}
 		}
+
+		$scope.addComment = function () {
+			$scope.comments.push($scope.comment)
+		}
+		
 	}])
 
 	app.filter('imageify', function () {
