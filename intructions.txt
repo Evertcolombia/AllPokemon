@@ -78,7 +78,7 @@
 
 //recargamos y vemos  que funciona
 
-/veamos con git diff que cambio del paso n3 al n4
+//veamos con git diff que cambio del paso n3 al n4
 
 //bueno ahora borremos los cambios que ya hicimos
 
