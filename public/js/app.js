@@ -31,29 +31,6 @@
 		}
 	}])
 
-	app.controller('CommentsController', ['$scope', function($scope) {
-		$scope.comments = []
-		$scope.comment = {}
-		$scope.show = false;
-
-		$scope.toggle = function () {
-			$scope.show = !$scope.show
-		}
-
-		$scope.anonymousChanged = function () {
-			if($scope.comment.anonymous) {
-				$scope.comment.email = '';
-			}
-		}
-
-		$scope.addComment = function () {
-			$scope.comment.date = Date.now();
-			$scope.comments.push($scope.comment)
-			$scope.comment = {};
-		}
-
-	}])
-
 	app.directive('pokemonData', function () {
 		return {
 			restrict: 'E',
@@ -87,6 +64,34 @@
 			restrict: 'E',
 			templateUrl: 'partials/pokemon-evolution.html'
 		}
+	})
+
+	app.directive('pokemonComments', function () {
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/pokemon-comments.html',
+			controller:  ['$scope', function ($scope) {
+				$scope.comments = []
+				$scope.comment = {}
+				$scope.show = false;
+
+				$scope.toggle = function () {
+					$scope.show = !$scope.show
+				}
+
+				$scope.anonymousChanged = function () {
+					if($scope.comment.anonymous) {
+						$scope.comment.email = '';
+					}
+				}
+
+				$scope.addComment = function () {
+					$scope.comment.date = Date.now();
+					$scope.comments.push($scope.comment)
+					$scope.comment = {};
+				}
+			}
+		]}
 	})
 
 	app.filter('imageify', function () {

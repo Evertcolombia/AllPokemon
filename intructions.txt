@@ -683,7 +683,7 @@ vamos a ver como podemos asociar este arcivo con nuestra vista principal de html
 
 //creremos nuestra nueva directiva, las directivas las cre amos en nuestro app.js
 
-//para las directivas usamos la funcion directive, esta recibe el nombre, y la funcion como argumentos, el nombre de la directiva debe ir especificado si o si en camelCase, cuando la representemos en tml es normal hacerlo con - pokemon-data
+//para las directivas usamos la funcion directive, esta recibe el nombre, y la funcion como argumentos, el nombre de la directiva debe ir especificado si o si en camelCase, cuando la representemos en html es normal hacerlo con - pokemon-data
 
 //esta es una directiva de tipo elemento, un nuevo elemento html 
 
@@ -753,7 +753,7 @@ app.directive('pokemonData', function() {
 
 //en partials creemos este nuevo documento 'pokemon-comments.html'
 
-//este arcivo va a contener el html de todo el panel de comentarios, entonces ahora vamos a index.html y  copiemos todo el contenido dentro del alance de ese controlador
+//este arcivo va a conteneer el html de todo el panel de comentarios, entonces ahora vamos a index.html y  copiemos todo el contenido dentro del alance de ese controlador
 
 //si recargamos veremos que en nuestro navegador ya no esta el panel de comentarios
 
