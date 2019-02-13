@@ -809,7 +809,7 @@ controller:  .... logica JS
 
 //en la carpeta public creamos una carpeta llamada views, que contendra la vista de lo que seran paginas completas, dentro de este creamos un pokemon.html y a este le vamos a pasar el contenido que representa el pokemon en nuestro index.html, lo pegamos en nuestor nuevo archivo
 
-//asi extraimos lb a funcionalidad del pokemon a su respectiva vista
+//asi extraimos la funcionalidad del pokemon a su respectiva vista
 
 //ahora volvemos a nuestro index.html y ahi vamos a usar nuestra directiva ngView que me permitira cargar este contenido y el de otras vistas en mi aplicacion
 
@@ -821,7 +821,7 @@ controller:  .... logica JS
 
 //aqui termina el paso 24, hacemos reset, pasamos al 25, y revisamos los cambios entre 24 y 25 para ver que fue lo mismo que hicimos
 
-//vamos ahora a descargar el modulo de ngroute, para esto vamos a la doc de angularJS y buscamos como instalar con npm 
+//vamos ahora a descargar el modulo de ngroute, para esto vamos a la doc de angularJS y buscamos como obtener el archivo minificado 
 
 //ahora ya con esto listo, vamos en el index.html a refeenciar este archivo del ngroute, la idea es que lo hagamos antes del modulo de nuestra aplicaicion para que lo podamos tener disponible
 
