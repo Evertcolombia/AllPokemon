@@ -825,7 +825,7 @@ controller:  .... logica JS
 
 //ahora ya con esto listo, vamos en el index.html a refeenciar este archivo del ngroute, la idea es que lo hagamos antes del modulo de nuestra aplicaicion para que lo podamos tener disponible
 
-<script src='js/lib/angular-route.min.js'></
+<script src='js/lib/angular-route.min.js'>
 
 //ahora vamos a ver como inyectar este angular route, primero lo hacemos en el modulo de nuestra app 
 
@@ -864,10 +864,6 @@ app.config(['$routeProvider', function($routeProvider) {
       //ahora inyectemos el controlador
 
       controller: 'PokemonController', 
-
-      //de momento estamos usando alias para los controllers, mas adelante veremos la buena practica con $scope, por ahora sigamos asi
-
-      controllerAs: 'pkmCtrl'
     })
 
 //guardamos y vamos al navegador   tenemos que ver nuestra vista enlazada con la ruta del pokemon, su funcionalidad tambien
