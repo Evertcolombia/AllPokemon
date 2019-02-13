@@ -30,4 +30,12 @@
 			$scope.tab = tab
 		}
 	}])
+
+	app.filter('imageify', function () {
+		return function (input) {
+			let url = 'img/pokemons/' + input.toLowerCase() + '.jpg'
+			return url
+		}
+		
+	})
 })()
