@@ -61,6 +61,34 @@
 		}
 	})
 
+	app.directive('pokemonName', function () {
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/pokemon-name.html'
+		}
+	})
+
+	app.directive('pokemonImg', function () {
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/pokemon-img.html'
+		}
+	})
+
+	app.directive('pokemonStats', function () {
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/pokemon-stats.html'
+		}
+	})
+
+	app.directive('pokemonEvolution', function () {
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/pokemon-evolution.html'
+		}
+	})
+
 	app.filter('imageify', function () {
 		return function (input) {
 			let url = 'img/pokemons/' + input.toLowerCase() + '.jpg'
