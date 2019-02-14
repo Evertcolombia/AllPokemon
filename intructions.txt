@@ -873,7 +873,7 @@ app.config(['$routeProvider', function($routeProvider) {
 //ya creamos nuestra primera ruta ahora crearemos una nueva ruta, para esto debemos definir una vista que va a contener la informacion asociada a esta ruta 
 
 
-//creamos una nueva lista llamada pokdex que sera la encargada de mostrarnos la lista de los pokemon en la vista pricipal
+//creamos una nueva vista llamada pokdex que sera la encargada de mostrarnos la lista de los pokemon en la vista pricipal
 
 //en la carpeta de views creamos un pokedex.html
 
