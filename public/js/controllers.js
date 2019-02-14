@@ -1,13 +1,22 @@
 (function () {
 	angular.module('pokedex.controllers', [])
 		
-		.controller('PokedexController', ['$scope', 'PokemonService', function ($scope, PokemonService) {
-			$scope.pokemons = [];
-			
-			PokemonService.all()
-				.then(function (response) {
-					$scope.pokemons = response
-				})
+		.controller('PokedexController', ['$scope', 'PokemonService', '$routeParams', function ($scope, PokemonService, $routeParams) {
+			let type = $routeParams.type;
+
+			if (type) {
+				$scope.type = type;
+				PokemonService.byType(type)
+					.then(function (response) {
+						$scope.pokemons = response
+					})
+			} 
+				else {
+					PokemonService.all()
+						.then(function (response) {
+						$scope.pokemons = response
+					})
+				}
 		}])
 
 		.controller('PokemonController', ['$scope', 'PokemonService', '$routeParams', function ($scope, PokemonService, $routeParams) {

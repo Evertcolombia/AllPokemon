@@ -18,6 +18,10 @@
 					templateUrl:'views/pokemon.html',
 					controller:  'PokemonController'
 				})
+				.when('/:type', {
+					templateUrl: 'views/pokedex.html',
+					controller: 'PokedexController'
+				})
 				.otherwise({
 					redirectTo: '/'
 				})
