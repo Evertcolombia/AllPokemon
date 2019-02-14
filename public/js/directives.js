@@ -1,3 +1,8 @@
+/*Este archivo con tiene las directivas de los partials
+
+	Partials = pequeñas porciones de codigo
+*/
+
 (function () {
 	angular.module('pokedex.directives', [])
 

@@ -1,3 +1,6 @@
+/*Este archivo contiene el modulo principal con, sus dependencias
+y la configuracion del servicio Provider para las rutas*/
+
 (function () {
 	let app = angular.module('Pokedex', [
 		'ngRoute',
