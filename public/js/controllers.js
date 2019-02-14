@@ -27,7 +27,7 @@
 						.then(function (response) {
 						$scope.pokemons = response
 						$scope.groupped = partition(response, 4)
-						debugger
+						//debugger
 						
 					})
 				}
