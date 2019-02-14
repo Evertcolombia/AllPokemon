@@ -6,6 +6,8 @@ El otro toma el input que le pasemos y contruye una ruta hacia las imaenes de lo
 	angular.module('pokedex.filters', [])
 		.filter('normalize', function () {
 			return function (input) {
+				if (!input) return '';
+				
 				input = input
 							.replace('♂', 'm')
 							.replace('♀', 'f')
