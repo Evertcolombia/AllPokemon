@@ -1021,7 +1021,7 @@ app.config(['$routeProvider', function($routeProvider) {
 //guardamos y recargamos y vemos que funcione
 
 //con esto acaba el paso 28, 29, 30 hacemos reset y pasamos al 31, tambien hacemos diff  tambien guardamos y recargamos para ver cambios, revisemos bien
-//esto ultimo es solo un adelanto para hacer el cambio del controlador del pokemon a que use tambien $scope, y mas adelante haremos estos pasos que faltan de nuevo en la siguiente sesion
+
 
 //pasamos entonces el controlador de pokemon a que use $scope, tambien lavista del pokemon debe ser modificada, ya no necesitamos alias
 

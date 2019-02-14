@@ -15,10 +15,10 @@ El otro toma el input que le pasemos y contruye una ruta hacia las imaenes de lo
 			}
 		})
 
-		.filter('imageify', function () {
+		.filter('imageify', ['$filter', function ($filter) {
 			return function (input) {
-				let url = 'img/pokemons/' + input.toLowerCase() + '.jpg'
+				let url = 'img/pokemons/' + $filter('normalize')(input) + '.jpg'
 				return url
 			}		
-		})
+		}])
 })()
