@@ -1,6 +1,8 @@
 /*Este archivo con tiene las directivas de los partials
 
 	Partials = pequeñas porciones de codigo
+	link = es un metodo que se ejecutara cada vez que se cargue la directiva
+	$observe = es un metodo que nos permite escuchar por cambios en atributos que estan en el DOM
 */
 
 (function () {
@@ -48,12 +50,23 @@
 			}
 		})
 
-		.directive('pokemonComments', function () {
+		.directive('pokemonComments', ['PokemonService', function (PokemonService) {
 			return {
 				restrict: 'E',
 				templateUrl: 'partials/pokemon-comments.html',
+				scope: {
+					name: '@name'
+				},
+				link: function (scope, element, attributes) {
+					attributes.$observe('name', function (value) {
+						if(value) {
+							scope.name = value
+							scope.comments = PokemonService.getComments(value)
+						}
+					})
+				},
 				controller:  ['$scope', function ($scope) {
-					$scope.comments = []
+					$scope.comments = PokemonService.getComments($scope.name)
 					$scope.comment = {}
 					$scope.show = false;
 
@@ -69,11 +82,12 @@
 
 					$scope.addComment = function () {
 						$scope.comment.date = Date.now();
-						$scope.comments.push($scope.comment)
+						PokemonService.saveComments($scope.name, $scope.comment)
+						$scope.comments = PokemonService.getComments($scope.name)
 						$scope.comment = {};
 					}
 				}
 			]}
-		})
+		}])
 
 })()

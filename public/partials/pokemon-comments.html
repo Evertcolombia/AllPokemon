@@ -8,7 +8,7 @@
 				<div ng-if='!commentsForm.$valid' class="alert alert-danger">Formulario invalido</div>
 				<div class="form-group">
 					<div class="col-sm-6">
-						<textarea class="form-control" placeholder="Please tell us what you think about {{pokemon.name}}" ng-model='comment.body' required></textarea>
+						<textarea class="form-control" placeholder="Please tell us what you think about {{name}}" ng-model='comment.body' required></textarea>
 					</div>
 					<div class="col-sm-4">
 						<input type="email" placeholder="Please enter you email address" class="form-control" ng-model='comment.email' ng-disabled='comment.anonymous' ng-required='!comment.anonymous'>

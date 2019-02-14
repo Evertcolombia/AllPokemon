@@ -1379,3 +1379,110 @@ a comments le pasamos lo que traiga comments, pero como es un string todo lo que
 //y en el partial del pokemon-comment en el textArea llamamos a {{name}} en lugar del pokemon.name
 
 
+//entenderemos que nos saltamos un paso el de underscoreJS que era el 41 
+aqui se hacen unos arreglos al css con la clase pokemon que crearemos en el pokedex.html
+
+//descubriremos para que sirve underscoreJS aqui buscamos el codigo de underscore minificado y creamos un archivo  underscore.min.js
+
+//ya con esto vamos a llamarlo desde nuestro index.html
+
+//Para usar esta libreria vamos a nuestro archivo de controladores
+//en la funcion auto ejecutable que hace esto para todo el archivo le pasamos un parametro este sera underscore que se representa como un underscore '_', pasamos ese parametro a la funcion
+
+//vamos entonces a cerar una funcion llamada partition que recibe dos parametros data y n, 
+//esta funcion retorna el uso de _ y le concatenamos un metodo chain(data) que nos permite retorna un objeto envuelto
+a este le concatenamos el uso de otro metodo groupBy() recibe una funcion condos parametros, element, index, 
+//esta funcion debe retornar un llamado a Math.floor() y como parametro le pasamos index / n
+a esta funcion en su final le concatenamos el metodo toArray() que crea un array apartir de la lista que le proporcione
+//y por ultimo le concatenamos el metodo value()para que devuelva el valor del objeto envuelto 
+
+
+//ahora  donde tenemos el llamado a la funcion que busca por typo y nos retorna los datos,  tenemos en $scope.pokemons los datos, crearemos una nueva propiedad asociada a $scope llamada groupped como valor le pasamos  un llamado a un metodo partition(),
+
+//recibe la data como lista y el numero a particionar 4
+
+
+//En el else hacemos el mismo llamado a $scope.groupped pasandole partition y los parametros
+//bajo este hacemos debugger para ver que tiene esta propiedad en la consola
+
+//al finalizar este archivo en el llamado a que se ejecute solo tambien le pasamos _
+
+recargamos y vemos que sucedio, en $scope.groupped tenemos 38 array con 4 elementos cada uno, asi que partition(tomo la lista, y la dividio en elementos de 4 elementos cada uno)
+
+//ahora veamos como aplicar esto a la vista, vamos a pokedex.html y buscamos la linea despues de los dos titulos 
+
+  </div>
+  //repita en cada fila  cada grupo en groupped, son 38
+   <div class="row" ng-repeat="group in groupped">
+
+   //en cada fila, dividala en columnas de 3, y en cada columna repita cada pokemon en cada grupo
+    <div class="col-lg-3" ng-repeat="pokemon in group">
+
+      //haga un panel por cada uno
+      <div class="pokemon panel panel-primary">
+
+        //pongale un header que contenga los datos del nombre
+        <div class="panel-heading">
+          <pokemon-name></pokemon-name>
+        </div>
+
+        //el body del panel, ponemos la imagen  
+        <div class="panel-body">
+          <a href="/poke/AllPokemon/public/#/pokemon/{{pokemon.name | normalize}}">
+            <pokemon-image></pokemon-image>
+          </a>
+        </div>
+
+        //en el footer del panel ponemos el typo
+        <div class="panel-footer">
+          <div class="text-center">
+            <pokemon-type></pokemon-type>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+//asi entonces  particionamos la lista de los pokemon en pokedex, ya sean todos, o por typo en arrays de a 4 objetos, cuatro pokemon y los insertamos en un panel, un card en la vista
+
+//demole un poco de estilos
+
+//esta clase queda asi
+
+.pokemon {
+  height: 350px;
+}
+
+.pokemon h1 {
+  margin: 0;
+  color:#fff;
+  font-size: 18px;
+}
+
+//elminamos el css al .pokemon:hover
+
+//agregamos
+.pokemon h1 > small {
+  color: #ccc;
+
+
+//en el .pokemon img ya no tendremos el width
+
+.pokemon img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 200px;
+  max-heigt: 220px;
+}
+.panel .panel-body {
+  position: relative;
+  height: 250px;
+}
+
+//recargamos y tenemos mejor las cards en pokedex y en la vista por type hacemos   recordemos habiamos salteado el paso y este es 40..41, el de $window es 41..42

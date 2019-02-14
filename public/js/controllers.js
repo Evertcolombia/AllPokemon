@@ -2,8 +2,9 @@
 /* 
 	PokemonService= servicio del pokemon, factory.
 	$routeParams = es un metodo de ngRoute que nos permite obtener los parametros de una ruta
+	_ = esta libreria sirve para el el filtrado de datos entre muchas otras cosas
 */
-(function () {
+(function (_) {
 	angular.module('pokedex.controllers', [])
 		
 		/*PAra la vista de pokedex*/
@@ -17,14 +18,27 @@
 				PokemonService.byType(type)
 					.then(function (response) {
 						$scope.pokemons = response
+						$scope.groupped = partition(response, 4)
+						
 					})
 			} /*si no obtengamos todos lo pokemon*/
 				else {
 					PokemonService.all()
 						.then(function (response) {
 						$scope.pokemons = response
+						$scope.groupped = partition(response, 4)
+						debugger
+						
 					})
 				}
+			/*este metodo recibe una lista y un numero, el numero represental al grupo de elementos que contendra cada 
+			particion, usa underscore para hacer esto con sus metodos y retorna un 
+			array con cada 4 elementos */
+			function partition (data, n) {
+				return _.chain(data).groupBy(function (element, index) {
+					return Math.floor(index / n);
+				}).toArray().value()
+			}	
 		}])
 
 		/*para la vista de cada pokemon con sus caracteristicas*/
@@ -47,4 +61,4 @@
 		}
 	}])
 
-})()
+})(_)
