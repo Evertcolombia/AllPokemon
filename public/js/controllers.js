@@ -1,5 +1,14 @@
 (function () {
 	angular.module('pokedex.controllers', [])
+		
+		.controller('PokedexController', ['$scope', '$http', function ($scope, $http) {
+			$scope.pokemons = [];
+			$http.get('./pokemons.json')
+				.then(function (response) {
+					$scope.pokemons = response.data
+					//console.log(response.data)
+				})
+		}])
 
 		.controller('PokemonController', ['$scope', function ($scope) {
 			$scope.pokemon = {
