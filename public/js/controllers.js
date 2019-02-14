@@ -10,9 +10,10 @@
 				})
 		}])
 
-		.controller('PokemonController', ['$scope', 'PokemonService', function ($scope, PokemonService) {
+		.controller('PokemonController', ['$scope', 'PokemonService', '$routeParams', function ($scope, PokemonService, $routeParams) {
 			$scope.pokemon = {}
-			PokemonService.byName('charizard')
+			let name = $routeParams.name;
+			PokemonService.byName(name)
 				.then(function (response) {
 					$scope.pokemon = response
 				})
