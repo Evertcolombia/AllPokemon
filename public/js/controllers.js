@@ -1,12 +1,12 @@
 (function () {
 	angular.module('pokedex.controllers', [])
 		
-		.controller('PokedexController', ['$scope', '$http', function ($scope, $http) {
+		.controller('PokedexController', ['$scope', 'PokemonService', function ($scope, PokemonService) {
 			$scope.pokemons = [];
-			$http.get('./pokemons.json')
+			
+			PokemonService.all()
 				.then(function (response) {
-					$scope.pokemons = response.data
-					//console.log(response.data)
+					$scope.pokemons = response
 				})
 		}])
 
